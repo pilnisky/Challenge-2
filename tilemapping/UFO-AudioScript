@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+public class AudioScript : MonoBehaviour
+{
+    private AudioSource audioSource;
+    public AudioClip winSound;
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            audioSource = GetComponent<AudioSource>();
+            audioSource.clip = winSound;
+            audioSource.Play();
+        }
+    }
+}
